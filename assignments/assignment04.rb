@@ -167,12 +167,12 @@ class LinkedList
     @last.nil? ? nil : @last.item
   end
   def each(&block) # this method doesn't appear to be working
-    if @head.nil?
+    if @first.nil?
       nil
     else
-      some_node = @head
+      some_node = @first
       while some_node != nil
-        block.call(some_node.item)
+        yield some_node.item
         some_node = some_node.link
       end
     end
